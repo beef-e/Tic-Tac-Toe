@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+#mainTitle {
+	font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+	font-weight: 700;
+	font-size: 35px;
+	line-height: 46.16px;
+}
+
+#player1Counter,
+#player2Counter {
+	transition: ease-in-out 1s;
+}
+
+@media screen and (prefers-color-scheme: light) {
+	body {
+		background-color: rgb(200, 200, 200);
+	}
+
+	#mainTitle {
+		color: rgb(18, 18, 18);
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+}
