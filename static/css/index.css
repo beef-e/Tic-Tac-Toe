@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 #mainTitle {
 	font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 	font-weight: 700;
@@ -12,6 +18,27 @@
 	transition: ease-in-out 1s;
 }
 
+#gameTable {
+	width: 100%; /* ?Will it work? */
+	border-radius: 30px;
+}
+
+#Symbol_resetButton {
+	border-radius: 10px;
+	font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+	font-weight: 400;
+	font-size: 19px;
+	line-height: 25.06px;
+	text-align: center;
+}
+
+#authorSignature {
+	font-family: 'Roboto Slab', 'Courier New', Courier, monospace;
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 14.51px;
+}
+
 @media screen and (prefers-color-scheme: light) {
 	body {
 		background-color: rgb(200, 200, 200);
@@ -19,6 +46,27 @@
 
 	#mainTitle {
 		color: rgb(18, 18, 18);
+	}
+
+	#counterText1,
+	#counterText2 {
+		font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 32.97px;
+	}
+
+	#gameTable {
+		background-color: rgb(125, 125, 125);
+	}
+
+	#Symbol_resetButton {
+		color: rgb(18, 18, 18);
+		background-color: rgb(141, 141, 141);
+	}
+
+	#authorSignature {
+		color: rgb(102, 102, 102);
 	}
 }
 
