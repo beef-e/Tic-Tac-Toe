@@ -1,9 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	text-align: center;
+}
+
+.flex {
+	display: flex;
+}
+
+.col4GCentered {
+	margin-right: 12.307vw;
+	margin-left: 12.307vw;
+}
+
+.col4Centered {
+	margin-right: 17.435vw;
+	margin-left: 17.435vw;
+}
+
+#themeSwitch label {
+	margin-left: 308px;
+	margin-top: 30px;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 62px;
+	height: 34px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider-round {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #7d7d7d;
+	/*-webkit-transition: 0.4s;*/
+	transition: 0.4s;
+	border-radius: 50px;
+}
+
+.slider-round:before {
+	position: absolute;
+	content: '';
+	height: 32px;
+	width: 32px;
+	left: 2px;
+	bottom: 1px;
+	background-color: #d9ab67;
+	/*-webkit-transition: 0.4s;*/
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+/*.switch input:checked + .slider-round {
+}
+
+.switch input:focus + .slider-round {
+}*/
+
+.switch input:checked + .slider-round:before {
+	/*-webkit-transform: translateX(20px);
+	-ms-transform: translateX(20px);*/
+	transform: translateX(26px);
 }
 
 #mainTitle {
@@ -11,16 +83,54 @@
 	font-weight: 700;
 	font-size: 35px;
 	line-height: 46.16px;
+	margin-top: 16px;
+}
+
+#pointsContainerDiv {
+	justify-content: space-around;
+	margin-top: 64px;
 }
 
 #player1Counter,
 #player2Counter {
-	transition: ease-in-out 1s;
+	transition: ease-in-out 0.5s;
+	font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+	font-weight: 400;
+	font-size: 25px;
+	line-height: 32.97px;
 }
 
 #gameTable {
-	width: 100%; /* ?Will it work? */
+	/*width: 100%; /* ?Will it work? */ /* !NO */
 	border-radius: 30px;
+	flex-wrap: wrap;
+	margin-right: 12.307vw;
+	margin-left: 12.307vw;
+	margin-top: 27px;
+}
+
+.cell {
+	height: 98px;
+	width: 98px;
+}
+
+#Cell_1,
+#Cell_4,
+#Cell_7 {
+	border-right: solid 1px;
+}
+
+#Cell_3,
+#Cell_6,
+#Cell_9 {
+	border-left: solid 1px;
+}
+
+#Cell_4,
+#Cell_5,
+#Cell_6 {
+	border-bottom: solid 1px;
+	border-top: solid 1px;
 }
 
 #Symbol_resetButton {
@@ -30,6 +140,9 @@
 	font-size: 19px;
 	line-height: 25.06px;
 	text-align: center;
+	margin-top: 101px;
+	height: 36px;
+	width: 156px;
 }
 
 #authorSignature {
@@ -37,6 +150,8 @@
 	font-weight: 400;
 	font-size: 11px;
 	line-height: 14.51px;
+	margin-top: 133px;
+	margin-left: 253px;
 }
 
 @media screen and (prefers-color-scheme: light) {
@@ -50,10 +165,11 @@
 
 	#counterText1,
 	#counterText2 {
-		font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+		/*font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 		font-weight: 400;
 		font-size: 25px;
-		line-height: 32.97px;
+		line-height: 32.97px;*/
+		color: #000;
 	}
 
 	#gameTable {
@@ -67,6 +183,10 @@
 
 	#authorSignature {
 		color: rgb(102, 102, 102);
+	}
+
+	.cell {
+		border-color: #000;
 	}
 }
 
