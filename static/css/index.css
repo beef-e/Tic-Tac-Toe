@@ -100,6 +100,10 @@
 	line-height: 32.97px;
 }
 
+.bordered {
+	border-bottom: solid 1px #7d7d7d;
+}
+
 #gameTable {
 	/*width: 100%; /* ?Will it work? */ /* !NO */
 	border-radius: 30px;
@@ -185,10 +189,81 @@
 		color: rgb(102, 102, 102);
 	}
 
+	#Cell_1,
+	#Cell_4,
+	#Cell_7 {
+		border-right: solid 1px #000;
+	}
+
+	#Cell_3,
+	#Cell_6,
+	#Cell_9 {
+		border-left: solid 1px #000;
+	}
+
+	#Cell_4,
+	#Cell_5,
+	#Cell_6 {
+		border-bottom: solid 1px #000;
+		border-top: solid 1px #000;
+	}
+
 	.cell {
 		border-color: #000;
 	}
 }
 
 @media screen and (prefers-color-scheme: dark) {
+	body {
+		background-color: #1e1e1e;
+	}
+
+	#mainTitle {
+		color: #fff;
+	}
+
+	#counterText1,
+	#counterText2 {
+		/*font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 32.97px;*/
+		color: #fff;
+	}
+
+	#gameTable {
+		background-color: #7d7d7d;
+	}
+
+	#Symbol_resetButton {
+		color: #fff;
+		background-color: rgb(141, 141, 141);
+	}
+
+	#authorSignature {
+		color: #999;
+	}
+
+	#Cell_1,
+	#Cell_4,
+	#Cell_7 {
+		border-right: solid 1px #fff;
+	}
+
+	#Cell_3,
+	#Cell_6,
+	#Cell_9 {
+		border-left: solid 1px #fff;
+	}
+
+	#Cell_4,
+	#Cell_5,
+	#Cell_6 {
+		border-bottom: solid 1px #fff;
+		border-top: solid 1px #fff;
+	}
+
+	.cell {
+		border-color: #fff;
+	}
 }
