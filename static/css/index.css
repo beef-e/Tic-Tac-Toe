@@ -230,6 +230,15 @@
 	.cell {
 		border-color: #000;
 	}
+
+	.player1 {
+		/*background-image: ;*/
+		background-color: yellow;
+	}
+
+	.player2 {
+		/*background-image: ;*/
+	}
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -284,5 +293,15 @@
 
 	.cell {
 		border-color: #fff;
+	}
+
+	.player1 {
+		/*background-image: ;*/
+		background-color: yellow;
+	}
+
+	.player2 {
+		/*background-image: ;*/
+		background-color: blue;
 	}
 }
