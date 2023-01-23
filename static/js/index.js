@@ -8,9 +8,10 @@ for (let i = 0; i < 3; i++) {
 }
 
 let isWinner = false;
-let moveCounter = 0;
 let cells = document.querySelectorAll('.cell');
 let cellOccupied = true;
+let Punteggio1 = 0;
+let Punteggio2 = 0;
 
 for (let i = 0; i < cells.length; i++) {
 	cells[i].addEventListener('click', function (e) {
@@ -23,9 +24,19 @@ for (let i = 0; i < cells.length; i++) {
 		if (!cellOccupied) {
 			if (currentPlayer === 1) {
 				e.currentTarget.classList.add('player1');
+				grid[e.currentTarget.dataset.yaxis][e.currentTarget.dataset.xaxis] = currentPlayer;
+				if (checkWinner(currentPlayer) === true) {
+					Punteggio1++;
+					document.getElementById('counterText1').innerHTML = `P1: ${Punteggio1}`;
+				}
 				currentPlayer = 2;
 			} else {
 				e.currentTarget.classList.add('player2');
+				grid[e.currentTarget.dataset.yaxis][e.currentTarget.dataset.xaxis] = currentPlayer;
+				if (checkWinner(currentPlayer)) {
+					Punteggio2++;
+					document.getElementById('counterText2').innerHTML = `P2: ${Punteggio2}`;
+				}
 				currentPlayer = 1;
 			}
 		}
@@ -97,15 +108,26 @@ function verticalCheck(currentPlayer) {
 }
 
 function checkWinner(currentPlayer) {
-	if (moveCounter >= 4) {
-		if (mainDiagonalCheck) {
-			isWinner = true;
-		} else if (secondDiagonalCheck) {
-			isWinner = true;
-		} else if (horizontalCheck) {
-			isWinner = true;
-		} else if (verticalCheck) {
-			isWinner = true;
+	if (mainDiagonalCheck(currentPlayer)) {
+		return true;
+	} else if (secondDiagonalCheck(currentPlayer)) {
+		return true;
+	} else if (horizontalCheck(currentPlayer)) {
+		return true;
+	} else if (verticalCheck(currentPlayer)) {
+		return true;
+	}
+}
+
+function resetSymbols() {
+	for (let i = 0; i < 3; i++) {
+		for (let j = 0; j < 3; j++) {
+			grid[i][j] = null;
 		}
 	}
+	for (let i = 0; i < cells.length; i++) {
+		cells[i].classList.remove('player1');
+		cells[i].classList.remove('player2');
+	}
+	currentPlayer = 1;
 }

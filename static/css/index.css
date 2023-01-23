@@ -166,6 +166,7 @@
 	margin-top: 101px;
 	height: 36px;
 	width: 156px;
+	border: none;
 }
 
 #authorSignature {
@@ -232,12 +233,15 @@
 	}
 
 	.player1 {
-		/*background-image: ;*/
-		background-color: yellow;
+		background-image: url(../images/Segno_Iniziale_Light.png);
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	.player2 {
-		/*background-image: ;*/
+		background-image: url(../images/Segno_secondo_Light.png);
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 }
 
@@ -297,11 +301,15 @@
 
 	.player1 {
 		/*background-image: ;*/
-		background-color: yellow;
+		background-image: url(../images/Segno_Iniziale_Dark.png);
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	.player2 {
 		/*background-image: ;*/
-		background-color: blue;
+		background-image: url(../images/Segno_secondo_Dark.png);
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 }

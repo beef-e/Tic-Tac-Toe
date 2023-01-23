@@ -55,38 +55,57 @@
 			class="4colGCentered flex">
 			<div
 				id="Cell_1"
-				class="cell"><!--Inserisci due data attribute per ogni cella con le coordinate per aggioranre grid e cntrollare chackWinner--></div>
+				class="cell"
+				data-Xaxis="0"
+				data-Yaxis="0">
+				<!--Inserisci due data attribute per ogni cella con le coordinate per aggioranre grid e cntrollare chackWinner-->
+			</div>
 			<div
 				id="Cell_2"
-				class="cell"></div>
+				class="cell"
+				data-Xaxis="1"
+				data-Yaxis="0"></div>
 			<div
 				id="Cell_3"
-				class="cell"></div>
+				class="cell"
+				data-Xaxis="2"
+				data-Yaxis="0"></div>
 			<div
 				id="Cell_4"
-				class="cell"></div>
+				class="cell"
+				data-Xaxis="0"
+				data-Yaxis="1"></div>
 			<div
 				id="Cell_5"
-				class="cell"></div>
+				class="cell"
+				data-Xaxis="1"
+				data-Yaxis="1"></div>
 			<div
 				id="Cell_6"
-				class="cell"></div>
+				class="cell"
+				data-Xaxis="2"
+				data-Yaxis="1"></div>
 			<div
 				id="Cell_7"
-				class="cell"></div>
+				class="cell"
+				data-Xaxis="0"
+				data-Yaxis="2"></div>
 			<div
 				id="Cell_8"
-				class="cell"></div>
+				class="cell"
+				data-Xaxis="1"
+				data-Yaxis="2"></div>
 			<div
 				id="Cell_9"
-				class="cell"></div>
-			<!--?Come faccio linee orizzontali e verticali di cui cambiare il colore senza fare casini inutili?-->
-			<!--!Creo tanti div all'interno della table e ad ognuno assegno i border giusti. la tabella dovrà probabilmente essere flex-->
+				class="cell"
+				data-Xaxis="2"
+				data-Yaxis="2"></div>
 		</div>
 
 		<button
 			id="Symbol_resetButton"
-			class="2colGCentered">
+			class="2colGCentered"
+			onclick="resetSymbols()">
 			Reset Symbols
 		</button>
 
