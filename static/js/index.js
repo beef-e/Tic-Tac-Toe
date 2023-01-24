@@ -24,6 +24,9 @@ for (let i = 0; i < cells.length; i++) {
 
 		if (!cellOccupied && !partitaTerminata) {
 			if (currentPlayer === 1) {
+				document.getElementById('player2Counter').classList.remove('bordered');
+				document.getElementById('player1Counter').classList.add('bordered');
+
 				e.currentTarget.classList.add('player1');
 				grid[e.currentTarget.dataset.yaxis][e.currentTarget.dataset.xaxis] = currentPlayer;
 				if (checkWinner(currentPlayer) === true) {
@@ -33,6 +36,9 @@ for (let i = 0; i < cells.length; i++) {
 				}
 				currentPlayer = 2;
 			} else {
+				document.getElementById('player1Counter').classList.remove('bordered');
+				document.getElementById('player2Counter').classList.add('bordered');
+
 				e.currentTarget.classList.add('player2');
 				grid[e.currentTarget.dataset.yaxis][e.currentTarget.dataset.xaxis] = currentPlayer;
 				if (checkWinner(currentPlayer)) {
@@ -48,8 +54,8 @@ for (let i = 0; i < cells.length; i++) {
 function mainDiagonalCheck(currentPlayer) {
 	if (
 		grid[0][0] === currentPlayer &&
-		grid[0][1] === currentPlayer &&
-		grid[0][2] === currentPlayer
+		grid[1][1] === currentPlayer &&
+		grid[2][2] === currentPlayer
 	) {
 		return true;
 	}
@@ -133,4 +139,6 @@ function resetSymbols() {
 	}
 	currentPlayer = 1;
 	partitaTerminata = false;
+	document.getElementById('player2Counter').classList.remove('bordered');
+	document.getElementById('player1Counter').classList.add('bordered');
 }
