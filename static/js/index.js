@@ -12,6 +12,7 @@ let cells = document.querySelectorAll('.cell');
 let cellOccupied = true;
 let Punteggio1 = 0;
 let Punteggio2 = 0;
+let partitaTerminata = false;
 
 for (let i = 0; i < cells.length; i++) {
 	cells[i].addEventListener('click', function (e) {
@@ -21,13 +22,14 @@ for (let i = 0; i < cells.length; i++) {
 			e.currentTarget.classList.contains('player2') ||
 			e.currentTarget.classList.contains('player1');
 
-		if (!cellOccupied) {
+		if (!cellOccupied && !partitaTerminata) {
 			if (currentPlayer === 1) {
 				e.currentTarget.classList.add('player1');
 				grid[e.currentTarget.dataset.yaxis][e.currentTarget.dataset.xaxis] = currentPlayer;
 				if (checkWinner(currentPlayer) === true) {
 					Punteggio1++;
 					document.getElementById('counterText1').innerHTML = `P1: ${Punteggio1}`;
+					partitaTerminata = true;
 				}
 				currentPlayer = 2;
 			} else {
@@ -130,4 +132,5 @@ function resetSymbols() {
 		cells[i].classList.remove('player2');
 	}
 	currentPlayer = 1;
+	partitaTerminata = false;
 }
