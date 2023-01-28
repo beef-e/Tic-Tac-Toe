@@ -24,8 +24,8 @@ for (let i = 0; i < cells.length; i++) {
 
 		if (!cellOccupied && !partitaTerminata) {
 			if (currentPlayer === 1) {
-				document.getElementById('player2Counter').classList.remove('bordered');
-				document.getElementById('player1Counter').classList.add('bordered');
+				document.getElementById('player1Counter').classList.remove('bordered');
+				document.getElementById('player2Counter').classList.add('bordered');
 
 				e.currentTarget.classList.add('player1');
 				grid[e.currentTarget.dataset.yaxis][e.currentTarget.dataset.xaxis] = currentPlayer;
@@ -36,8 +36,8 @@ for (let i = 0; i < cells.length; i++) {
 				}
 				currentPlayer = 2;
 			} else {
-				document.getElementById('player1Counter').classList.remove('bordered');
-				document.getElementById('player2Counter').classList.add('bordered');
+				document.getElementById('player2Counter').classList.remove('bordered');
+				document.getElementById('player1Counter').classList.add('bordered');
 
 				e.currentTarget.classList.add('player2');
 				grid[e.currentTarget.dataset.yaxis][e.currentTarget.dataset.xaxis] = currentPlayer;
