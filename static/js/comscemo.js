@@ -14,6 +14,12 @@ let Punteggio1 = 0;
 let Punteggio2 = 0;
 let partitaTerminata = false;
 
+function printGrid(grid) {
+	grid.forEach((el, i) => {
+		console.log(`${el[0]} | ${el[1]} | ${el[2]}`);
+	});
+}
+
 for (let i = 0; i < cells.length; i++) {
 	cells[i].addEventListener('click', function (e) {
 		e.preventDefault();
@@ -35,21 +41,32 @@ for (let i = 0; i < cells.length; i++) {
 				Punteggio1++;
 				document.getElementById('counterText1').innerHTML = `P1: ${Punteggio1}`;
 				partitaTerminata = true;
+				showModal(3000);
 			}
 			let mossa = getBestMove(grid);
 			currentPlayer = 2;
+			// console.log(mossa);
 			let quadratino = document.querySelector(
-				".cell[data-xaxis='mossa[1]'][data-yaxis='mossa[0]']"
+				`.cell[data-xaxis="${mossa[1]}"][data-yaxis="${mossa[0]}"]`
 			);
-			grid[mossa[1]][mossa[0]] = currentPlayer;
+			grid[mossa[0]][mossa[1]] = currentPlayer;
 			quadratino.classList.add('player2');
 			if (checkWinner(currentPlayer)) {
 				Punteggio2++;
 				document.getElementById('counterText2').innerHTML = `P2: ${Punteggio2}`;
+				showModal(3000);
 			}
 			currentPlayer = 1;
 		}
 	});
+}
+
+function showModal(time) {
+	document.querySelector('#winner').innerHTML = currentPlayer === 2 ? 'O' : 'X';
+	document.querySelector('.modal-content').classList.toggle('open');
+	setTimeout(function () {
+		document.querySelector('.modal-content').classList.toggle('open');
+	}, time);
 }
 
 function mainDiagonalCheck(currentPlayer) {

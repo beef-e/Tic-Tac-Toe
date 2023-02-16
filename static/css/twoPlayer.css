@@ -155,6 +155,21 @@
 	border-bottom: solid 1px;
 	border-top: solid 1px;
 }
+.modal-content {
+	position: fixed;
+	top: -100%;
+	left: 0;
+	transition: all 0.2s ease-in-out;
+	width: 100%;
+	min-height: 50%;
+	background: #fff;
+	text-align: center;
+	z-index: 1000;
+}
+
+.modal-content.open {
+	top: 0;
+}
 
 #Symbol_resetButton {
 	border-radius: 10px;
