@@ -130,11 +130,33 @@
 	margin-right: 12.307vw;
 	margin-left: 12.307vw;
 	margin-top: 27px;
+	max-width: 75.38461538461538vw;
+}
+
+@media screen and (min-width: 768px) {
+	#gameTable {
+		/*width: 19.4%;*/
+		margin-left: auto;
+		margin-right: auto;
+		width: 38%;
+		max-width: 30%;
+		min-width: 294px;
+	}
+
+	.cell {
+		flex-basis: 33.3%;
+		height: 12.08384710234279vh;
+		width: /*25.12820512820513vw*/ 12.08384710234279vh;
+		min-width: 98px;
+		min-height: 98px;
+	}
 }
 
 .cell {
-	height: 98px;
-	width: 98px;
+	height: 12.08384710234279vh;
+	width: 25.12820512820513vw;
+	min-height: 98px;
+	min-width: 98px;
 }
 
 #Cell_1,
@@ -159,7 +181,7 @@
 	position: fixed;
 	top: -100%;
 	left: 0;
-	transition: all 0.2s ease-in-out;
+	transition: all 0.7s ease-in-out;
 	width: 100%;
 	min-height: 50%;
 	background: #fff;
@@ -171,6 +193,14 @@
 	top: 0;
 }
 
+.modal-content h3 {
+	font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+	font-weight: 700;
+	font-size: 35px;
+	line-height: 46.16px;
+	margin-top: 16px;
+}
+
 #Symbol_resetButton {
 	border-radius: 10px;
 	font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
@@ -178,10 +208,20 @@
 	font-size: 19px;
 	line-height: 25.06px;
 	text-align: center;
-	margin-top: 101px;
+	margin-top: 11.96vh;
 	height: 36px;
 	width: 156px;
 	border: none;
+}
+
+@media screen and (min-width: 768px) {
+	#Symbol_resetButton {
+		margin-top: 7vh;
+	}
+
+	#authorSignature {
+		display: none;
+	}
 }
 
 #authorSignature {

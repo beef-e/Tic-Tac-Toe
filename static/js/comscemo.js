@@ -41,7 +41,7 @@ for (let i = 0; i < cells.length; i++) {
 				Punteggio1++;
 				document.getElementById('counterText1').innerHTML = `P1: ${Punteggio1}`;
 				partitaTerminata = true;
-				showModal(3000);
+				showModal(2000);
 			}
 			let mossa = getBestMove(grid);
 			currentPlayer = 2;
@@ -54,7 +54,7 @@ for (let i = 0; i < cells.length; i++) {
 			if (checkWinner(currentPlayer)) {
 				Punteggio2++;
 				document.getElementById('counterText2').innerHTML = `P2: ${Punteggio2}`;
-				showModal(3000);
+				showModal(2000);
 			}
 			currentPlayer = 1;
 		}

@@ -33,6 +33,7 @@ for (let i = 0; i < cells.length; i++) {
 					Punteggio1++;
 					document.getElementById('counterText1').innerHTML = `P1: ${Punteggio1}`;
 					partitaTerminata = true;
+					showModal(2000);
 				}
 				currentPlayer = 2;
 			} else {
@@ -44,6 +45,7 @@ for (let i = 0; i < cells.length; i++) {
 				if (checkWinner(currentPlayer)) {
 					Punteggio2++;
 					document.getElementById('counterText2').innerHTML = `P2: ${Punteggio2}`;
+					showModal(2000);
 				}
 				currentPlayer = 1;
 			}
@@ -141,4 +143,12 @@ function resetSymbols() {
 	partitaTerminata = false;
 	document.getElementById('player2Counter').classList.remove('bordered');
 	document.getElementById('player1Counter').classList.add('bordered');
+}
+
+function showModal(time) {
+	document.querySelector('#winner').innerHTML = currentPlayer === 2 ? 'O' : 'X';
+	document.querySelector('.modal-content').classList.toggle('open');
+	setTimeout(function () {
+		document.querySelector('.modal-content').classList.toggle('open');
+	}, time);
 }
