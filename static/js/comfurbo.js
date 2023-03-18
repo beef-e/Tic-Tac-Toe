@@ -7,6 +7,9 @@ for (let i = 0; i < 3; i++) {
 	}
 }
 
+// X è min
+// O è max
+
 let isWinner = false;
 let cells = document.querySelectorAll('.cell');
 let cellOccupied = true;
@@ -43,7 +46,7 @@ for (let i = 0; i < cells.length; i++) {
 				partitaTerminata = true;
 				showModal(2000);
 			}
-			let mossa = getBestMove(grid);
+			let mossa = getBestMove(grid, 2);
 			currentPlayer = 2;
 			// console.log(mossa);
 			let quadratino = document.querySelector(
@@ -175,8 +178,17 @@ function getEmptyCells(board) {
 	return emptyCells;
 }
 
-function getBestMove(board) {
-	let bestScore = -Infinity;
+function getBestMove(board, player) {
+	let min = 1;
+	let max = 2;
+	let bestScore;
+
+	if (player === min) {
+		bestScore = Infinity;
+	} else {
+		bestScore = -Infinity;
+	}
+
 	let bestMove;
 	let emptyCells = getEmptyCells(board);
 
@@ -184,22 +196,79 @@ function getBestMove(board) {
 		let i = element[0];
 		let j = element[1];
 
-		board[i][j] = 2;
-		let currentCellScore = minimax(board, 2);
+		board[i][j] = player;
+		let currentCellScore = minimax(board, player);
 		board[i][j] = null;
 
-		if (currentCellScore > bestScore) {
+		if (player === min && currentCellScore < bestScore) {
+			//vuol dire che vogliamo minimizzare il punteggio
+			bestScore = currentCellScore;
+			bestMove = [i, j];
+		} else if (player === max && currentCellScore > bestScore) {
+			//massimizziamo il punteggio
 			bestScore = currentCellScore;
 			bestMove = [i, j];
 		}
+
+		/*if (currentCellScore > bestScore) {
+			bestScore = currentCellScore;
+			bestMove = [i, j];
+		}*/
 	});
 
 	return bestMove;
 }
 
 function minimax(board, player) {
-	return 1;
+	//minimax deve prendde in input matrice e player e restituisce un punteggio
+	let min = 1;
+	let max = 2;
+	let bestScore;
+
+	if (player === min) {
+		bestScore = Infinity;
+	} else {
+		bestScore = -Infinity;
+	}
+
+	if (checkWinner || getEmptyCells.length === 0) {
+		gameOver = true;
+	} /*else if (getEmptyCells.length === 0) {
+		gameOver = true;
+	}*/
+
+	//caso base uno vince o hanno pareggiato
+	if (gameOver) {
+		return chiHaVinto();
+	} else {
+		// Qui facciamo la ricorsione
+		if (player === max) {
+			emptyCells.forEach((element) => {
+				let i = element[0];
+				let j = element[1];
+
+				board[i][j] = player;
+				let currentCellScore = minimax(board, min);
+				board[i][j] = null;
+				bestScore = Math.max(bestScore, currentCellScore);
+			});
+		} else {
+			emptyCells.forEach((element) => {
+				let i = element[0];
+				let j = element[1];
+
+				board[i][j] = player;
+				let currentCellScore = minimax(board, max);
+				board[i][j] = null;
+				bestScore = Math.min(bestScore, currentCellScore);
+			});
+		}
+
+		return bestScore;
+	}
 }
+
+function chiHaVinto() {}
 
 /*function getBestMove(board) {
 	//||getEmptyCells;
